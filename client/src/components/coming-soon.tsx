@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { StarField } from "./star-field";
 import { Confetti } from "./confetti";
+import { PartyLights } from "./party-lights";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -57,6 +58,7 @@ export function ComingSoon() {
 
   return (
     <div className="party-pattern min-h-screen relative overflow-hidden">
+      <PartyLights />
       <StarField />
       <Confetti />
 
@@ -68,15 +70,10 @@ export function ComingSoon() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <nav className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                <i className="fas fa-party-horn text-white text-xl" />
-              </div>
-              <span className="text-2xl font-display font-bold gradient-text">
-                Party Games
-              </span>
-            </div>
+          <nav className="max-w-7xl mx-auto flex justify-center items-center">
+            <span className="text-3xl font-display font-bold gradient-text">
+              🎉 Party Games 🎉
+            </span>
           </nav>
         </motion.header>
 
@@ -131,29 +128,43 @@ export function ComingSoon() {
                 🎯 Epic Games Coming Your Way! 🎯
               </h2>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 {[
-                  { name: "Codenames", emoji: "🕵️", color: "from-purple-500 to-indigo-500" },
-                  { name: "Never Have I Ever", emoji: "😱", color: "from-red-500 to-pink-500" },
-                  { name: "Charades", emoji: "🎭", color: "from-green-500 to-emerald-500" },
-                  { name: "Truth or Dare", emoji: "💥", color: "from-orange-500 to-red-500" },
-                  { name: "Two Truths & A Lie", emoji: "🤔", color: "from-yellow-500 to-orange-500" },
-                  { name: "Werewolf", emoji: "🐺", color: "from-violet-500 to-purple-500" },
-                  { name: "Pictionary", emoji: "✏️", color: "from-blue-500 to-cyan-500" },
-                  { name: "20 Questions", emoji: "❓", color: "from-teal-500 to-green-500" },
+                  { name: "Codenames", emoji: "🕵️", color: "from-purple-400 to-indigo-600", shadow: "purple" },
+                  { name: "Never Have I Ever", emoji: "😱", color: "from-red-400 to-pink-600", shadow: "red" },
+                  { name: "Charades", emoji: "🎭", color: "from-green-400 to-emerald-600", shadow: "green" },
+                  { name: "Truth or Dare", emoji: "💥", color: "from-orange-400 to-red-600", shadow: "orange" },
+                  { name: "Two Truths & A Lie", emoji: "🤔", color: "from-yellow-400 to-orange-600", shadow: "yellow" },
+                  { name: "Werewolf", emoji: "🐺", color: "from-violet-400 to-purple-600", shadow: "violet" },
+                  { name: "Pictionary", emoji: "✏️", color: "from-blue-400 to-cyan-600", shadow: "blue" },
+                  { name: "20 Questions", emoji: "❓", color: "from-teal-400 to-green-600", shadow: "teal" },
                 ].map((game, index) => (
                   <motion.div
                     key={game.name}
-                    className={`bg-gradient-to-br ${game.color}/20 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center hover:scale-105 transition-all duration-300 cursor-pointer hover:${game.color.replace('from-', 'shadow-')} hover:shadow-lg`}
-                    whileHover={{ y: -5 }}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.9 + index * 0.1 }}
+                    className="group relative bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 cursor-pointer hover:bg-white/15"
+                    style={{
+                      background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+                    }}
+                    whileHover={{ 
+                      y: -8,
+                      boxShadow: `0 20px 40px rgba(${game.shadow === 'purple' ? '139,92,246' : game.shadow === 'red' ? '239,68,68' : game.shadow === 'green' ? '34,197,94' : game.shadow === 'orange' ? '249,115,22' : game.shadow === 'yellow' ? '234,179,8' : game.shadow === 'violet' ? '139,92,246' : game.shadow === 'blue' ? '59,130,246' : '20,184,166'},0.4)`,
+                    }}
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ delay: 0.9 + index * 0.1, duration: 0.5 }}
                     onClick={() => handleGameClick(game.name)}
                     data-testid={`game-${game.name.toLowerCase().replace(/\s+/g, '-')}`}
                   >
-                    <div className="text-2xl mb-2">{game.emoji}</div>
-                    <div className="text-sm font-semibold text-white/90">{game.name}</div>
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                         style={{
+                           background: `linear-gradient(135deg, ${game.color.includes('purple') ? 'rgba(139,92,246,0.2)' : game.color.includes('red') ? 'rgba(239,68,68,0.2)' : game.color.includes('green') ? 'rgba(34,197,94,0.2)' : game.color.includes('orange') ? 'rgba(249,115,22,0.2)' : game.color.includes('yellow') ? 'rgba(234,179,8,0.2)' : game.color.includes('violet') ? 'rgba(139,92,246,0.2)' : game.color.includes('blue') ? 'rgba(59,130,246,0.2)' : 'rgba(20,184,166,0.2)'} 0%, transparent 100%)`
+                         }}
+                    />
+                    <div className="relative z-10">
+                      <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{game.emoji}</div>
+                      <div className="text-sm font-bold text-white group-hover:text-white/90 transition-colors duration-300">{game.name}</div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
