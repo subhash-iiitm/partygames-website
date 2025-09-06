@@ -33,7 +33,7 @@ export function ComingSoon() {
       setEmail("");
       toast({
         title: "Successfully subscribed!",
-        description: "We'll notify you when PartyPlay launches.",
+        description: "We'll notify you when Party Games launches.",
       });
       
       setTimeout(() => {
@@ -74,31 +74,8 @@ export function ComingSoon() {
                 <i className="fas fa-party-horn text-white text-xl" />
               </div>
               <span className="text-2xl font-display font-bold gradient-text">
-                PartyPlay
+                Party Games
               </span>
-            </div>
-            <div className="hidden md:flex items-center space-x-6">
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                data-testid="link-about"
-              >
-                About
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                data-testid="link-games"
-              >
-                Games
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                data-testid="link-contact"
-              >
-                Contact
-              </a>
             </div>
           </nav>
         </motion.header>
@@ -277,7 +254,7 @@ export function ComingSoon() {
         >
           <div className="max-w-7xl mx-auto text-center">
             <p className="text-muted-foreground text-sm" data-testid="text-copyright">
-              © 2024 PartyPlay. Made with 🖤 and lots of 🍾 for epic party hosts everywhere! 🎆
+              © 2024 Party Games. Made with 🖤 and lots of 🍾 for epic party hosts everywhere! 🎆
             </p>
           </div>
         </motion.footer>
