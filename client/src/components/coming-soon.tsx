@@ -152,7 +152,7 @@ export function ComingSoon() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             {/* Hero Badge - Enhanced with urgency and social proof */}
             <motion.div 
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-indigo-500/20 border border-pink-400/30 rounded-full text-sm font-bold backdrop-blur-sm animate-bounce-gentle party-glow"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-indigo-500/20 border border-pink-400/30 rounded-full text-sm font-bold backdrop-blur-sm bounce-gentle party-glow"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -165,15 +165,28 @@ export function ComingSoon() {
 
             {/* Main Headline - Enhanced value prop */}
             <motion.h1 
-              className="text-4xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight"
+              className="text-4xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ 
+                scale: 0.95,
+                rotate: [0, -1, 1, 0],
+                transition: { duration: 0.2 }
+              }}
+              onClick={() => {
+                // Add confetti burst effect on click
+                console.log("🎉 PARTY VIBES ACTIVATED! 🎉");
+              }}
               data-testid="heading-main"
             >
-              <span className="gradient-text">Turn Any Gathering Into</span>
+              <span className="gradient-text hover:animate-pulse">Turn Any Gathering Into</span>
               <br />
-              <span className="text-foreground">An Unforgettable Party! 🎉</span>
+              <span className="text-foreground hover:text-yellow-300 transition-colors duration-300">An Unforgettable Party! 🎉</span>
             </motion.h1>
 
             {/* Subtitle - More compelling and benefit-focused */}
