@@ -158,7 +158,7 @@ export function ComingSoon() {
               data-testid="badge-coming-soon"
             >
               <span className="text-2xl mr-2">🚀</span>
-              <span className="gradient-text font-display">BETA LAUNCHING JANUARY 2025</span>
+              <span className="gradient-text font-display">COMING SOON</span>
               <span className="text-2xl ml-2">🔥</span>
             </motion.div>
 
@@ -187,7 +187,7 @@ export function ComingSoon() {
                 <strong className="text-foreground">The #1 Platform</strong> for instant party games that get everyone laughing within 60 seconds. No awkward silences, no boring moments - just pure fun!
               </motion.p>
               
-              {/* Social Proof */}
+              {/* Free USP Highlight */}
               <motion.div 
                 className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground/80"
                 initial={{ opacity: 0 }}
@@ -195,16 +195,16 @@ export function ComingSoon() {
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                  <span>4.9/5 from beta testers</span>
+                  <span className="text-green-400">✨</span>
+                  <span className="font-semibold text-green-300">100% FREE Forever</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span>10,000+ early signups</span>
+                  <span className="text-blue-400">🚫</span>
+                  <span>No Ads, No Subscriptions</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-blue-400">🚀</span>
-                  <span>Featured on ProductHunt</span>
+                  <span className="text-purple-400">🎉</span>
+                  <span>Pure Entertainment</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -268,14 +268,17 @@ export function ComingSoon() {
                   {isSubscribed ? "You're In! 🎉" : "Join Now! 🚀"}
                 </Button>
               </form>
-              <div className="mt-4 space-y-2">
-                <p className="text-xs text-muted-foreground" data-testid="text-email-disclaimer">
-                  🎈 Join 10,000+ party hosts getting early access! No spam, just epic party alerts! 🎈
+              <div className="mt-4 space-y-3">
+                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-email-disclaimer">
+                  🎈 <strong className="text-foreground">Be the first to know</strong> when we launch! Get exclusive early access to our completely free party games platform.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground/60">
-                  <span className="flex items-center gap-1"><span className="text-green-400">✓</span> Free Beta Access</span>
-                  <span className="flex items-center gap-1"><span className="text-green-400">✓</span> Lifetime Discount</span>
-                  <span className="flex items-center gap-1"><span className="text-green-400">✓</span> Priority Support</span>
+                <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-400/20 rounded-lg p-3">
+                  <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1"><span className="text-green-400">✓</span> First Access to New Games</span>
+                    <span className="flex items-center gap-1"><span className="text-green-400">✓</span> Behind-the-Scenes Updates</span>
+                    <span className="flex items-center gap-1"><span className="text-green-400">✓</span> Community Input on Features</span>
+                  </div>
+                  <p className="text-xs text-center text-muted-foreground/70 mt-2">No spam, unsubscribe anytime. We respect your inbox! 💝</p>
                 </div>
               </div>
             </motion.div>
