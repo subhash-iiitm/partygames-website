@@ -68,47 +68,79 @@ export function FloatingGame({
 
   return (
     <motion.div
-      className="fixed backdrop-blur-sm border border-white/10 rounded-xl p-4 cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:border-opacity-50 z-30"
+      className="fixed backdrop-blur-sm border border-white/20 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl z-30 bg-white/5"
       style={{
         width: size.width,
         height: size.height,
-        background: `linear-gradient(135deg, ${gradientFrom}20 0%, ${gradientTo}20 100%)`,
         left: 0,
         top: 0,
       }}
       animate={getFloatingAnimation()}
       onClick={onClick}
       whileHover={{
-        scale: 1.15,
-        boxShadow: `0 20px 40px ${gradientFrom}30`,
-        borderColor: `${gradientFrom}80`,
+        scale: 1.08,
+        boxShadow: `0 25px 50px ${gradientFrom}40`,
+        borderColor: `${gradientFrom}60`,
       }}
-      whileTap={{ scale: 1.2 }}
+      whileTap={{ scale: 1.02 }}
       data-testid={`floating-game-${name.toLowerCase().replace(/\s+/g, '-')}`}
     >
+      {/* Image Section - Takes up 60% of the card */}
       {image && (
-        <div className="absolute top-2 left-2 w-8 h-8 rounded-lg overflow-hidden bg-white/10">
+        <div className="w-full h-3/5 overflow-hidden relative">
           <img
             src={image}
             alt={name}
             className="w-full h-full object-cover"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
+              e.currentTarget.parentElement!.style.display = 'none';
             }}
+          />
+          {/* Gradient overlay for better text readability */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
           />
         </div>
       )}
-      <div className={`text-sm font-display font-bold ${textColor} mb-1 ${image ? 'mt-6' : ''}`}>
-        {name}
+      
+      {/* Content Section - Takes up remaining 40% */}
+      <div className="p-3 flex flex-col justify-center h-2/5 relative">
+        <div 
+          className="absolute inset-0 opacity-20 rounded-b-2xl"
+          style={{
+            background: `linear-gradient(135deg, ${gradientFrom} 0%, ${gradientTo} 100%)`,
+          }}
+        />
+        <div className="relative z-10">
+          <div className={`text-sm font-display font-bold ${textColor} mb-1 leading-tight`}>
+            {name}
+          </div>
+          <div className={`text-xs opacity-80 ${textColor.replace('300', '200')} leading-relaxed`}>
+            {description}
+          </div>
+        </div>
       </div>
-      <div className={`text-xs opacity-75 ${textColor.replace('300', '200')}`}>
-        {description}
-      </div>
-      {icon && !image && (
-        <i className={`${icon} absolute bottom-2 right-2 ${iconColor} text-lg`} />
-      )}
-      {!icon && !image && (
-        <div className={`absolute bottom-2 right-2 w-5 h-5 rounded ${iconColor.replace('text-', 'bg-')} opacity-50`} />
+
+      {/* Fallback when no image */}
+      {!image && (
+        <div className="w-full h-full flex flex-col items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{
+              background: `linear-gradient(135deg, ${gradientFrom} 0%, ${gradientTo} 100%)`,
+            }}
+          />
+          <div className="relative z-10 text-center">
+            {icon && <i className={`${icon} ${iconColor} text-2xl mb-2`} />}
+            <div className={`text-sm font-display font-bold ${textColor} mb-1`}>
+              {name}
+            </div>
+            <div className={`text-xs opacity-75 ${textColor.replace('300', '200')}`}>
+              {description}
+            </div>
+          </div>
+        </div>
       )}
     </motion.div>
   );
