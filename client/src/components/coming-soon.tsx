@@ -9,51 +9,51 @@ import { useToast } from "@/hooks/use-toast";
 const getGamePositions = (width: number, height: number) => [
   {
     name: "Codenames",
-    description: "Word Game",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=center",
+    description: "🕵️ Spy Word Game",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=center",
     gradientFrom: "#8B5CF6",
     gradientTo: "#7C3AED",
-    textColor: "text-purple-300",
-    iconColor: "text-purple-400",
+    textColor: "text-purple-200",
+    iconColor: "text-purple-300",
     initialPosition: { x: 100, y: 80 },
-    size: { width: "8rem", height: "5rem" },
+    size: { width: "9rem", height: "6rem" },
     animationDelay: 0,
     animationType: "slow" as const,
   },
   {
-    name: "Social Humor",
-    description: "Party Laughs",
-    image: "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=64&h=64&fit=crop&crop=center",
-    gradientFrom: "#EC4899",
-    gradientTo: "#DB2777",
-    textColor: "text-pink-300",
-    iconColor: "text-pink-400",
+    name: "Cards Against Humanity",
+    description: "🔥 Adult Party Game",
+    image: "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=80&h=80&fit=crop&crop=center",
+    gradientFrom: "#DC2626",
+    gradientTo: "#B91C1C",
+    textColor: "text-red-200",
+    iconColor: "text-red-300",
     initialPosition: { x: width - 200, y: 150 },
-    size: { width: "9rem", height: "6rem" },
+    size: { width: "10rem", height: "7rem" },
     animationDelay: 1,
     animationType: "medium" as const,
   },
   {
-    name: "Tambola",
-    description: "Number Fun",
-    image: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=64&h=64&fit=crop&crop=center",
+    name: "Never Have I Ever",
+    description: "😱 Shocking Secrets",
+    image: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=80&h=80&fit=crop&crop=center",
     gradientFrom: "#F97316",
     gradientTo: "#EA580C",
-    textColor: "text-orange-300",
-    iconColor: "text-orange-400",
+    textColor: "text-orange-200",
+    iconColor: "text-orange-300",
     initialPosition: { x: 200, y: height - 250 },
-    size: { width: "7.5rem", height: "5.5rem" },
+    size: { width: "8.5rem", height: "6rem" },
     animationDelay: 2,
     animationType: "fast" as const,
   },
   {
-    name: "Guess Movie",
-    description: "Film Quiz",
-    image: "https://images.unsplash.com/photo-1489599856216-3e6c3ae7bd31?w=64&h=64&fit=crop&crop=center",
+    name: "Guess the Movie",
+    description: "🎬 Cinema Challenge",
+    image: "https://images.unsplash.com/photo-1489599856216-3e6c3ae7bd31?w=80&h=80&fit=crop&crop=center",
     gradientFrom: "#3B82F6",
     gradientTo: "#2563EB",
-    textColor: "text-blue-300",
-    iconColor: "text-blue-400",
+    textColor: "text-blue-200",
+    iconColor: "text-blue-300",
     initialPosition: { x: width - 180, y: height - 200 },
     size: { width: "9.5rem", height: "6.5rem" },
     animationDelay: 0.5,
@@ -61,55 +61,81 @@ const getGamePositions = (width: number, height: number) => [
   },
   {
     name: "Charades",
-    description: "Act It Out",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=64&h=64&fit=crop&crop=center",
+    description: "🎭 Act It Out!",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=80&h=80&fit=crop&crop=center",
     gradientFrom: "#10B981",
     gradientTo: "#059669",
-    textColor: "text-green-300",
-    iconColor: "text-green-400",
+    textColor: "text-emerald-200",
+    iconColor: "text-emerald-300",
     initialPosition: { x: 80, y: 250 },
-    size: { width: "8rem", height: "5rem" },
+    size: { width: "8rem", height: "5.5rem" },
     animationDelay: 3,
     animationType: "slow" as const,
   },
   {
-    name: "Trivia",
-    description: "Brain Teaser",
-    image: "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=64&h=64&fit=crop&crop=center",
+    name: "Two Truths & A Lie",
+    description: "🤔 Guess the Fib",
+    image: "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=80&h=80&fit=crop&crop=center",
     gradientFrom: "#EAB308",
     gradientTo: "#CA8A04",
-    textColor: "text-yellow-300",
-    iconColor: "text-yellow-400",
+    textColor: "text-yellow-200",
+    iconColor: "text-yellow-300",
     initialPosition: { x: width - 150, y: 200 },
-    size: { width: "7rem", height: "4.5rem" },
+    size: { width: "9rem", height: "6rem" },
     animationDelay: 1.5,
     animationType: "fast" as const,
   },
   {
     name: "Pictionary",
-    description: "Draw & Guess",
-    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=64&h=64&fit=crop&crop=center",
+    description: "✏️ Draw & Guess",
+    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=80&h=80&fit=crop&crop=center",
     gradientFrom: "#6366F1",
     gradientTo: "#4F46E5",
-    textColor: "text-indigo-300",
-    iconColor: "text-indigo-400",
+    textColor: "text-indigo-200",
+    iconColor: "text-indigo-300",
     initialPosition: { x: width * 0.4, y: 60 },
-    size: { width: "8.5rem", height: "5.5rem" },
+    size: { width: "8.5rem", height: "6rem" },
     animationDelay: 2.5,
     animationType: "medium" as const,
   },
   {
     name: "Truth or Dare",
-    description: "Classic Fun",
-    image: "https://images.unsplash.com/photo-1511268559489-34b624fbfcf5?w=64&h=64&fit=crop&crop=center",
+    description: "💥 Ultimate Challenge",
+    image: "https://images.unsplash.com/photo-1511268559489-34b624fbfcf5?w=80&h=80&fit=crop&crop=center",
     gradientFrom: "#F43F5E",
     gradientTo: "#E11D48",
-    textColor: "text-rose-300",
-    iconColor: "text-rose-400",
+    textColor: "text-rose-200",
+    iconColor: "text-rose-300",
     initialPosition: { x: width * 0.3, y: height - 180 },
-    size: { width: "9rem", height: "6rem" },
+    size: { width: "9.5rem", height: "6.5rem" },
     animationDelay: 1.8,
     animationType: "slow" as const,
+  },
+  {
+    name: "Werewolf",
+    description: "🐺 Mystery & Deception",
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=80&h=80&fit=crop&crop=center",
+    gradientFrom: "#7C3AED",
+    gradientTo: "#5B21B6",
+    textColor: "text-violet-200",
+    iconColor: "text-violet-300",
+    initialPosition: { x: width * 0.1, y: height * 0.6 },
+    size: { width: "8.5rem", height: "6rem" },
+    animationDelay: 0.8,
+    animationType: "medium" as const,
+  },
+  {
+    name: "20 Questions",
+    description: "❓ Mind Reading Game",
+    image: "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=80&h=80&fit=crop&crop=center",
+    gradientFrom: "#14B8A6",
+    gradientTo: "#0F766E",
+    textColor: "text-teal-200",
+    iconColor: "text-teal-300",
+    initialPosition: { x: width * 0.8, y: height * 0.3 },
+    size: { width: "8rem", height: "5.5rem" },
+    animationDelay: 2.2,
+    animationType: "fast" as const,
   },
 ];
 
@@ -259,9 +285,9 @@ export function ComingSoon() {
               transition={{ duration: 0.8, delay: 0.4 }}
               data-testid="heading-main"
             >
-              <span className="gradient-text">Party Games</span>
+              <span className="gradient-text">Epic Party Games</span>
               <br />
-              <span className="text-foreground">Made Simple</span>
+              <span className="text-foreground">That Break The Ice! 🎉</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -272,7 +298,7 @@ export function ComingSoon() {
               transition={{ duration: 0.8, delay: 0.6 }}
               data-testid="text-subtitle"
             >
-              Get ready for the ultimate collection of party games! From Codenames to Charades, we're bringing all your favorites to one amazing platform.
+              🔥 Ready to turn your gathering into the BEST party ever? From hilarious icebreakers to mind-bending mysteries, we've got every game that makes parties legendary! 🚀
             </motion.p>
 
             {/* Features List */}
@@ -282,20 +308,20 @@ export function ComingSoon() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:bg-card/70 transition-all duration-300" data-testid="feature-multiplayer">
-                <i className="fas fa-users text-primary text-2xl mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Multiplayer Fun</h3>
-                <p className="text-sm text-muted-foreground">Play with friends and family, locally or online</p>
+              <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-400/30 rounded-xl p-6 hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-multiplayer">
+                <div className="text-3xl mb-3">🎭</div>
+                <h3 className="font-bold text-purple-200 mb-2">Epic Group Fun</h3>
+                <p className="text-sm text-purple-100/80">2-20+ players! Perfect for small hangouts or massive parties</p>
               </div>
-              <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:bg-card/70 transition-all duration-300" data-testid="feature-classic-games">
-                <i className="fas fa-gamepad text-secondary text-2xl mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Classic Games</h3>
-                <p className="text-sm text-muted-foreground">All your favorite party games in one place</p>
+              <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm border border-orange-400/30 rounded-xl p-6 hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-classic-games">
+                <div className="text-3xl mb-3">🔥</div>
+                <h3 className="font-bold text-orange-200 mb-2">Instant Icebreakers</h3>
+                <p className="text-sm text-orange-100/80">Games that get everyone laughing within 60 seconds!</p>
               </div>
-              <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:bg-card/70 transition-all duration-300" data-testid="feature-any-device">
-                <i className="fas fa-mobile-alt text-accent text-2xl mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Any Device</h3>
-                <p className="text-sm text-muted-foreground">Works perfectly on phones, tablets, and computers</p>
+              <div className="bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-400/30 rounded-xl p-6 hover:from-green-500/30 hover:to-blue-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-any-device">
+                <div className="text-3xl mb-3">📱</div>
+                <h3 className="font-bold text-green-200 mb-2">No Setup Required</h3>
+                <p className="text-sm text-green-100/80">Just open, pick a game, and the party starts NOW!</p>
               </div>
             </motion.div>
 
@@ -317,20 +343,20 @@ export function ComingSoon() {
                 />
                 <Button
                   type="submit"
-                  className={`glow-button px-6 py-3 font-semibold transition-all duration-200 transform hover:scale-105 active:scale-95 ${
+                  className={`glow-button px-8 py-4 font-bold text-lg transition-all duration-200 transform hover:scale-105 active:scale-95 ${
                     isSubscribed
-                      ? "bg-gradient-to-r from-green-600 to-green-500"
-                      : "bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90"
+                      ? "bg-gradient-to-r from-green-500 to-emerald-500 shadow-lg shadow-green-500/50"
+                      : "bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 shadow-xl shadow-purple-500/50"
                   }`}
                   disabled={isSubscribed}
                   data-testid="button-notify"
                 >
-                  <i className={`${isSubscribed ? "fas fa-check" : "fas fa-bell"} mr-2`} />
-                  {isSubscribed ? "Subscribed!" : "Notify Me"}
+                  <i className={`${isSubscribed ? "fas fa-party-horn" : "fas fa-rocket"} mr-2`} />
+                  {isSubscribed ? "You're In! 🎉" : "Get Party Ready! 🚀"}
                 </Button>
               </form>
               <p className="text-xs text-muted-foreground mt-3" data-testid="text-email-disclaimer">
-                Be the first to know when we launch! No spam, just party updates.
+                🎈 Join 10,000+ party hosts waiting for launch! No spam, just epic party alerts! 🎈
               </p>
             </motion.div>
 
