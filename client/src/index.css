@@ -178,4 +178,47 @@
       transform: translate(-50%, -50%) scale(1.2);
     }
   }
+
+  .disco-ball {
+    transition: all 0.5s ease-in-out;
+    animation: disco-ball-rotate 8s linear infinite;
+  }
+
+  .disco-ball-on {
+    filter: brightness(1.2) saturate(1.1);
+  }
+
+  .disco-ball-off {
+    filter: brightness(0.6) saturate(0.8);
+  }
+
+  @keyframes disco-ball-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes disco-light-sweep {
+    0% {
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+    25% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  .light-ray {
+    pointer-events: none;
+  }
 }
