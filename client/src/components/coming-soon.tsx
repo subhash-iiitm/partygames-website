@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { StarField } from "./star-field";
 import { FloatingGame } from "./floating-game";
+import { Confetti } from "./confetti";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -209,6 +210,7 @@ export function ComingSoon() {
   return (
     <div className="party-pattern min-h-screen relative overflow-hidden">
       <StarField />
+      <Confetti />
       
       {/* Floating Game Elements */}
       {getGamePositions(windowSize.width, windowSize.height).map((game, index) => (
@@ -267,14 +269,15 @@ export function ComingSoon() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             {/* Hero Badge */}
             <motion.div 
-              className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm text-primary-foreground backdrop-blur-sm animate-bounce-gentle"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-indigo-500/20 border border-pink-400/30 rounded-full text-sm font-bold backdrop-blur-sm animate-bounce-gentle party-glow"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               data-testid="badge-coming-soon"
             >
-              <i className="fas fa-rocket mr-2" />
-              Coming Soon
+              <span className="text-2xl mr-2">🎉</span>
+              <span className="gradient-text font-display">LAUNCHING SOON</span>
+              <span className="text-2xl ml-2">🎉</span>
             </motion.div>
 
             {/* Main Headline */}
@@ -401,7 +404,7 @@ export function ComingSoon() {
         >
           <div className="max-w-7xl mx-auto text-center">
             <p className="text-muted-foreground text-sm" data-testid="text-copyright">
-              © 2024 PartyPlay. Made with <i className="fas fa-heart text-red-500" /> for party enthusiasts everywhere.
+              © 2024 PartyPlay. Made with 🖤 and lots of 🍾 for epic party hosts everywhere! 🎆
             </p>
           </div>
         </motion.footer>
