@@ -131,6 +131,47 @@ export function ComingSoon() {
       <PartyLights />
       <StarField />
       <Confetti />
+      
+      {/* Floating Party Emojis */}
+      <div className="fixed inset-0 pointer-events-none z-10 overflow-hidden">
+        {[...Array(8)].map((_, i) => {
+          const positions = [
+            { x: [100, 200, 300], y: [100, 150, 200] },
+            { x: [800, 900, 1000], y: [200, 250, 300] },
+            { x: [300, 400, 500], y: [400, 450, 500] },
+            { x: [600, 700, 800], y: [100, 150, 200] },
+            { x: [150, 250, 350], y: [300, 350, 400] },
+            { x: [700, 800, 900], y: [400, 450, 500] },
+            { x: [400, 500, 600], y: [150, 200, 250] },
+            { x: [200, 300, 400], y: [500, 550, 600] }
+          ];
+          
+          return (
+            <motion.div
+              key={i}
+              className="absolute text-4xl opacity-60"
+              initial={{ 
+                x: positions[i].x[0],
+                y: positions[i].y[0],
+                rotate: 0 
+              }}
+              animate={{ 
+                x: positions[i].x,
+                y: positions[i].y,
+                rotate: [0, 360, 720]
+              }}
+              transition={{
+                duration: 12 + Math.random() * 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.8
+              }}
+            >
+              {['🎉', '🎊', '🎈', '🍾', '🌟', '💫', '✨', '🔥'][i]}
+            </motion.div>
+          );
+        })}
+      </div>
 
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Header */}
@@ -141,9 +182,17 @@ export function ComingSoon() {
           transition={{ duration: 0.6 }}
         >
           <nav className="max-w-7xl mx-auto flex justify-center items-center">
-            <span className="text-3xl font-display font-bold gradient-text">
+            <motion.span 
+              className="text-3xl font-display font-bold gradient-text cursor-pointer"
+              whileHover={{ 
+                scale: 1.1,
+                rotate: [0, -5, 5, 0],
+                transition: { duration: 0.5 }
+              }}
+              onClick={() => console.log("🎉 PARTY GAMES! 🎉")}
+            >
               🎉 Party Games 🎉
-            </span>
+            </motion.span>
           </nav>
         </motion.header>
 

@@ -89,10 +89,17 @@
 
 @layer components {
   .gradient-text {
-    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F97316 100%);
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 30%, #F97316 60%, #10B981 100%);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradient-party 4s ease-in-out infinite;
+  }
+
+  @keyframes gradient-party {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   .glow-button {
