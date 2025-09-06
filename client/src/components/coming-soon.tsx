@@ -219,7 +219,7 @@ export function ComingSoon() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
-              <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
+              <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3 items-stretch">
                 <Input
                   type="email"
                   placeholder="📧 Enter your email for early party access"
@@ -230,7 +230,7 @@ export function ComingSoon() {
                 />
                 <Button
                   type="submit"
-                  className={`glow-button px-8 py-4 font-bold text-lg transition-all duration-200 transform hover:scale-105 active:scale-95 ${
+                  className={`glow-button px-6 sm:px-8 py-4 font-bold text-sm sm:text-base whitespace-nowrap transition-all duration-200 transform hover:scale-105 active:scale-95 min-w-[140px] sm:min-w-[160px] ${
                     isSubscribed
                       ? "bg-gradient-to-r from-green-500 to-emerald-500 shadow-lg shadow-green-500/50"
                       : "bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 shadow-xl shadow-purple-500/50"
@@ -239,7 +239,7 @@ export function ComingSoon() {
                   data-testid="button-notify"
                 >
                   <i className={`${isSubscribed ? "fas fa-party-horn" : "fas fa-rocket"} mr-2`} />
-                  {isSubscribed ? "You're In! 🎉" : "Get Party Ready! 🚀"}
+                  {isSubscribed ? "You're In! 🎉" : "Join Now! 🚀"}
                 </Button>
               </form>
               <p className="text-xs text-muted-foreground mt-3" data-testid="text-email-disclaimer">
@@ -288,7 +288,7 @@ export function ComingSoon() {
         >
           <div className="max-w-7xl mx-auto text-center">
             <p className="text-muted-foreground text-sm" data-testid="text-copyright">
-              © 2024 Party Games. Made with 🖤 and lots of 🍾 for epic party hosts everywhere! 🎆
+              © 2025 Party Games. Made with ❤️ and lots of 🍾 for epic party hosts everywhere! 🎆
             </p>
           </div>
         </motion.footer>
