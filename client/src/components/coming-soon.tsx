@@ -189,37 +189,32 @@ export function ComingSoon() {
               <span className="text-foreground hover:text-yellow-300 transition-colors duration-300">An Unforgettable Party! 🎉</span>
             </motion.h1>
 
-            {/* Subtitle - More compelling and benefit-focused */}
-            <motion.div className="space-y-4">
+            {/* Subtitle - Simplified */}
+            <motion.div className="space-y-6">
               <motion.p 
-                className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+                className="text-2xl lg:text-3xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 data-testid="text-subtitle"
               >
-                <strong className="text-foreground">The #1 Platform</strong> for instant party games that get everyone laughing within 60 seconds. No awkward silences, no boring moments - just pure fun!
+                🚀 <span className="gradient-text">Instant Party Games</span> 🎮
+                <br />
+                <span className="text-xl text-yellow-300">60 Seconds to Pure Fun!</span>
               </motion.p>
               
-              {/* Free USP Highlight */}
+              {/* Simple Benefits */}
               <motion.div 
-                className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground/80"
+                className="flex justify-center items-center gap-8 text-2xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-green-400">✨</span>
-                  <span className="font-semibold text-green-300">100% FREE Forever</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-blue-400">🚫</span>
-                  <span>No Ads, No Subscriptions</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-purple-400">🎉</span>
-                  <span>Pure Entertainment</span>
-                </div>
+                <div className="animate-bounce" style={{ animationDelay: '0s' }}>✨</div>
+                <div className="animate-bounce" style={{ animationDelay: '0.2s' }}>🎉</div>
+                <div className="animate-bounce" style={{ animationDelay: '0.4s' }}>🎮</div>
+                <div className="animate-bounce" style={{ animationDelay: '0.6s' }}>🎭</div>
+                <div className="animate-bounce" style={{ animationDelay: '0.8s' }}>🎯</div>
               </motion.div>
             </motion.div>
 
@@ -371,78 +366,93 @@ export function ComingSoon() {
         </motion.footer>
       </div>
 
-      {/* Floating Game Cards */}
+      {/* Floating Game Cards - Smaller & More Floaty */}
       <FloatingGame
         name="Codenames"
-        description="Secret agents, hidden identities, and mind-bending word clues!"
+        description="🕵️‍♂️ Secret Agents"
         icon="🕵️"
         gradientFrom="#8B5CF6"
         gradientTo="#EC4899"
         textColor="text-purple-200"
         iconColor="text-purple-300"
-        initialPosition={{ x: 100, y: 200 }}
-        size={{ width: "280px", height: "200px" }}
+        initialPosition={{ x: 100, y: 150 }}
+        size={{ width: "160px", height: "120px" }}
         animationDelay={0}
         animationType="slow"
         onClick={() => {}}
       />
       
       <FloatingGame
-        name="Social Humor"
-        description="Laugh until your sides hurt with ridiculous scenarios!"
+        name="Laughs"
+        description="😂 Comedy Gold"
         icon="😂"
         gradientFrom="#F97316"
         gradientTo="#EF4444"
         textColor="text-orange-200"
         iconColor="text-orange-300"
-        initialPosition={{ x: 800, y: 300 }}
-        size={{ width: "260px", height: "180px" }}
+        initialPosition={{ x: 800, y: 200 }}
+        size={{ width: "140px", height: "100px" }}
         animationDelay={1}
-        animationType="medium"
+        animationType="fast"
         onClick={() => {}}
       />
       
       <FloatingGame
-        name="Tambola Bingo"
-        description="The classic party favorite with a digital twist!"
+        name="Bingo"
+        description="🎯 Classic Fun"
         icon="🎯"
         gradientFrom="#06B6D4"
         gradientTo="#3B82F6"
         textColor="text-cyan-200"
         iconColor="text-cyan-300"
-        initialPosition={{ x: 200, y: 500 }}
-        size={{ width: "240px", height: "160px" }}
+        initialPosition={{ x: 150, y: 400 }}
+        size={{ width: "130px", height: "90px" }}
         animationDelay={2}
         animationType="fast"
         onClick={() => {}}
       />
       
       <FloatingGame
-        name="Movie Madness"
-        description="Guess movies from hilarious clues and acting!"
+        name="Movies"
+        description="🎬 Guess That!"
         icon="🎬"
         gradientFrom="#10B981"
         gradientTo="#059669"
         textColor="text-green-200"
         iconColor="text-green-300"
-        initialPosition={{ x: 900, y: 150 }}
-        size={{ width: "270px", height: "190px" }}
+        initialPosition={{ x: 700, y: 100 }}
+        size={{ width: "150px", height: "110px" }}
         animationDelay={0.5}
-        animationType="slow"
+        animationType="medium"
         onClick={() => {}}
       />
       
       <FloatingGame
-        name="Party Charades"
-        description="Act it out and make everyone guess in this classic!"
+        name="Charades"
+        description="🎭 Act It Out"
         icon="🎭"
         gradientFrom="#8B5CF6"
         gradientTo="#A855F7"
         textColor="text-violet-200"
         iconColor="text-violet-300"
-        initialPosition={{ x: 50, y: 600 }}
-        size={{ width: "250px", height: "170px" }}
+        initialPosition={{ x: 50, y: 500 }}
+        size={{ width: "140px", height: "100px" }}
         animationDelay={1.5}
+        animationType="fast"
+        onClick={() => {}}
+      />
+      
+      <FloatingGame
+        name="Trivia"
+        description="🧠 Brain Teasers"
+        icon="🧠"
+        gradientFrom="#EC4899"
+        gradientTo="#8B5CF6"
+        textColor="text-pink-200"
+        iconColor="text-pink-300"
+        initialPosition={{ x: 600, y: 350 }}
+        size={{ width: "135px", height: "95px" }}
+        animationDelay={2.5}
         animationType="medium"
         onClick={() => {}}
       />
