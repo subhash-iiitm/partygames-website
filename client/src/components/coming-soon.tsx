@@ -218,33 +218,39 @@ export function ComingSoon() {
               </motion.div>
             </motion.div>
 
-            {/* Features Section */}
+            {/* Fun Graphics - More Visual, Less Text */}
             <motion.div 
-              className="max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="flex justify-center items-center gap-12 my-8"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-400/30 rounded-xl p-6 hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-105 group" data-testid="feature-multiplayer">
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🎭</div>
-                  <h3 className="font-bold text-purple-200 mb-3 text-lg">Works For Any Group Size</h3>
-                  <p className="text-sm text-purple-100/80 leading-relaxed">From intimate gatherings of 2 to massive parties of 50+. Our games scale perfectly with your crowd!</p>
-                  <div className="mt-3 text-xs text-purple-200/60">✓ 2-50+ players ✓ All ages ✓ Any occasion</div>
-                </div>
-                <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm border border-orange-400/30 rounded-xl p-6 hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 hover:scale-105 group" data-testid="feature-classic-games">
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">⚡</div>
-                  <h3 className="font-bold text-orange-200 mb-3 text-lg">Instant Fun Guarantee</h3>
-                  <p className="text-sm text-orange-100/80 leading-relaxed">No awkward warm-up time. Our games get everyone laughing and engaged within the first minute!</p>
-                  <div className="mt-3 text-xs text-orange-200/60">✓ 60-second setup ✓ Zero learning curve ✓ Instant engagement</div>
-                </div>
-                <div className="bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-400/30 rounded-xl p-6 hover:from-green-500/30 hover:to-blue-500/30 transition-all duration-300 hover:scale-105 group" data-testid="feature-any-device">
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🚀</div>
-                  <h3 className="font-bold text-green-200 mb-3 text-lg">Zero Setup Hassle</h3>
-                  <p className="text-sm text-green-100/80 leading-relaxed">Just share a link and you're ready! No downloads, no cards, no prep work. Pure instant entertainment.</p>
-                  <div className="mt-3 text-xs text-green-200/60">✓ Web-based ✓ Any device ✓ Share via link</div>
-                </div>
-              </div>
+              <motion.div 
+                className="text-8xl cursor-pointer"
+                whileHover={{ scale: 1.3, rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => console.log("🎭 Party vibes!")}
+              >
+                🎭
+              </motion.div>
+              
+              <motion.div 
+                className="text-8xl cursor-pointer"
+                whileHover={{ scale: 1.3, rotate: -360 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => console.log("⚡ Lightning fun!")}
+              >
+                ⚡
+              </motion.div>
+              
+              <motion.div 
+                className="text-8xl cursor-pointer"
+                whileHover={{ scale: 1.3, rotate: 180 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => console.log("🚀 Rocket party!")}
+              >
+                🚀
+              </motion.div>
             </motion.div>
 
             {/* Email Signup */}
@@ -257,7 +263,7 @@ export function ComingSoon() {
               <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3 items-stretch">
                 <Input
                   type="email"
-                  placeholder="🎊 Drop your email & join the party revolution!"
+                  placeholder="🎉 Your email = Party invite!"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 min-w-[320px] bg-input border-border text-foreground placeholder:text-muted-foreground focus:ring-ring"
@@ -277,18 +283,22 @@ export function ComingSoon() {
                   {isSubscribed ? "PARTY TIME! 🥳🎊" : "GET ME TO THE PARTY! 🎉🚀"}
                 </Button>
               </form>
-              <div className="mt-4 space-y-3">
-                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-email-disclaimer">
-                  🎈 <strong className="text-foreground">Be the first to know</strong> when we launch! Get exclusive early access to our completely free party games platform.
-                </p>
-                <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-400/20 rounded-lg p-3">
-                  <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1"><span className="text-green-400">✓</span> First Access to New Games</span>
-                    <span className="flex items-center gap-1"><span className="text-green-400">✓</span> Behind-the-Scenes Updates</span>
-                    <span className="flex items-center gap-1"><span className="text-green-400">✓</span> Community Input on Features</span>
-                  </div>
-                  <p className="text-xs text-center text-muted-foreground/70 mt-2">No spam, unsubscribe anytime. We respect your inbox! 💝</p>
-                </div>
+              <div className="mt-4">
+                <motion.p 
+                  className="text-lg text-yellow-300 font-bold" 
+                  data-testid="text-email-disclaimer"
+                  animate={{ 
+                    scale: [1, 1.05, 1],
+                    color: ['#FDE047', '#F59E0B', '#FDE047']
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  🎈 First to Party = First to Play! 🎊
+                </motion.p>
               </div>
             </motion.div>
 
