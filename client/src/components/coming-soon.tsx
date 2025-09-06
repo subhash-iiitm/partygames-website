@@ -249,7 +249,7 @@ export function ComingSoon() {
               <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3 items-stretch">
                 <Input
                   type="email"
-                  placeholder="📧 Enter your email for early party access"
+                  placeholder="🎊 Drop your email & join the party revolution!"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 min-w-[320px] bg-input border-border text-foreground placeholder:text-muted-foreground focus:ring-ring"
@@ -266,7 +266,7 @@ export function ComingSoon() {
                   data-testid="button-notify"
                 >
                   <i className={`${isSubscribed ? "fas fa-party-horn" : "fas fa-rocket"} mr-2`} />
-                  {isSubscribed ? "You're In! 🎉" : "Join Now! 🚀"}
+                  {isSubscribed ? "PARTY TIME! 🥳🎊" : "GET ME TO THE PARTY! 🎉🚀"}
                 </Button>
               </form>
               <div className="mt-4 space-y-3">
@@ -291,27 +291,54 @@ export function ComingSoon() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
-              <a
+              <motion.a
                 href="#"
-                className="w-12 h-12 bg-card/50 backdrop-blur-sm border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-200 hover:scale-110"
+                className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-400/30 rounded-xl flex items-center justify-center text-blue-300 hover:text-blue-200 hover:bg-blue-500/30 hover:border-blue-400/60 transition-all duration-300 hover:scale-125 active:scale-95"
                 data-testid="link-twitter"
+                whileHover={{ 
+                  rotate: [0, -10, 10, -5, 0],
+                  transition: { duration: 0.5 }
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  // Add fun click effect
+                }}
               >
                 <i className="fab fa-twitter text-lg" />
-              </a>
-              <a
+                <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping opacity-75" />
+              </motion.a>
+              <motion.a
                 href="#"
-                className="w-12 h-12 bg-card/50 backdrop-blur-sm border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-secondary hover:bg-secondary/10 hover:border-secondary/30 transition-all duration-200 hover:scale-110"
+                className="w-12 h-12 bg-gradient-to-br from-pink-500/20 to-orange-500/20 backdrop-blur-sm border border-pink-400/30 rounded-xl flex items-center justify-center text-pink-300 hover:text-pink-200 hover:bg-pink-500/30 hover:border-pink-400/60 transition-all duration-300 hover:scale-125 active:scale-95"
                 data-testid="link-instagram"
+                whileHover={{ 
+                  rotate: [0, 15, -10, 5, 0],
+                  transition: { duration: 0.6 }
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  // Add fun click effect
+                }}
               >
                 <i className="fab fa-instagram text-lg" />
-              </a>
-              <a
+                <span className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-bounce" />
+              </motion.a>
+              <motion.a
                 href="#"
-                className="w-12 h-12 bg-card/50 backdrop-blur-sm border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-accent hover:bg-accent/10 hover:border-accent/30 transition-all duration-200 hover:scale-110"
+                className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-indigo-500/20 backdrop-blur-sm border border-purple-400/30 rounded-xl flex items-center justify-center text-purple-300 hover:text-purple-200 hover:bg-purple-500/30 hover:border-purple-400/60 transition-all duration-300 hover:scale-125 active:scale-95"
                 data-testid="link-discord"
+                whileHover={{ 
+                  scale: [1, 1.2, 0.9, 1.1, 1],
+                  transition: { duration: 0.8 }
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  // Add fun click effect
+                }}
               >
                 <i className="fab fa-discord text-lg" />
-              </a>
+                <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-400 rounded-full animate-pulse" />
+              </motion.a>
             </motion.div>
           </div>
         </main>
