@@ -1,155 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { StarField } from "./star-field";
-import { FloatingGame } from "./floating-game";
 import { Confetti } from "./confetti";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
-const getGamePositions = (width: number, height: number) => [
-  {
-    name: "Codenames",
-    description: "🕵️ Spy Word Game",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#8B5CF6",
-    gradientTo: "#7C3AED",
-    textColor: "text-purple-200",
-    iconColor: "text-purple-300",
-    initialPosition: { x: 100, y: 80 },
-    size: { width: "9rem", height: "6rem" },
-    animationDelay: 0,
-    animationType: "slow" as const,
-  },
-  {
-    name: "Cards Against Humanity",
-    description: "🔥 Adult Party Game",
-    image: "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#DC2626",
-    gradientTo: "#B91C1C",
-    textColor: "text-red-200",
-    iconColor: "text-red-300",
-    initialPosition: { x: width - 200, y: 150 },
-    size: { width: "10rem", height: "7rem" },
-    animationDelay: 1,
-    animationType: "medium" as const,
-  },
-  {
-    name: "Never Have I Ever",
-    description: "😱 Shocking Secrets",
-    image: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#F97316",
-    gradientTo: "#EA580C",
-    textColor: "text-orange-200",
-    iconColor: "text-orange-300",
-    initialPosition: { x: 200, y: height - 250 },
-    size: { width: "8.5rem", height: "6rem" },
-    animationDelay: 2,
-    animationType: "fast" as const,
-  },
-  {
-    name: "Guess the Movie",
-    description: "🎬 Cinema Challenge",
-    image: "https://images.unsplash.com/photo-1489599856216-3e6c3ae7bd31?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#3B82F6",
-    gradientTo: "#2563EB",
-    textColor: "text-blue-200",
-    iconColor: "text-blue-300",
-    initialPosition: { x: width - 180, y: height - 200 },
-    size: { width: "9.5rem", height: "6.5rem" },
-    animationDelay: 0.5,
-    animationType: "medium" as const,
-  },
-  {
-    name: "Charades",
-    description: "🎭 Act It Out!",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#10B981",
-    gradientTo: "#059669",
-    textColor: "text-emerald-200",
-    iconColor: "text-emerald-300",
-    initialPosition: { x: 80, y: 250 },
-    size: { width: "8rem", height: "5.5rem" },
-    animationDelay: 3,
-    animationType: "slow" as const,
-  },
-  {
-    name: "Two Truths & A Lie",
-    description: "🤔 Guess the Fib",
-    image: "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#EAB308",
-    gradientTo: "#CA8A04",
-    textColor: "text-yellow-200",
-    iconColor: "text-yellow-300",
-    initialPosition: { x: width - 150, y: 200 },
-    size: { width: "9rem", height: "6rem" },
-    animationDelay: 1.5,
-    animationType: "fast" as const,
-  },
-  {
-    name: "Pictionary",
-    description: "✏️ Draw & Guess",
-    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#6366F1",
-    gradientTo: "#4F46E5",
-    textColor: "text-indigo-200",
-    iconColor: "text-indigo-300",
-    initialPosition: { x: width * 0.4, y: 60 },
-    size: { width: "8.5rem", height: "6rem" },
-    animationDelay: 2.5,
-    animationType: "medium" as const,
-  },
-  {
-    name: "Truth or Dare",
-    description: "💥 Ultimate Challenge",
-    image: "https://images.unsplash.com/photo-1511268559489-34b624fbfcf5?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#F43F5E",
-    gradientTo: "#E11D48",
-    textColor: "text-rose-200",
-    iconColor: "text-rose-300",
-    initialPosition: { x: width * 0.3, y: height - 180 },
-    size: { width: "9.5rem", height: "6.5rem" },
-    animationDelay: 1.8,
-    animationType: "slow" as const,
-  },
-  {
-    name: "Werewolf",
-    description: "🐺 Mystery & Deception",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#7C3AED",
-    gradientTo: "#5B21B6",
-    textColor: "text-violet-200",
-    iconColor: "text-violet-300",
-    initialPosition: { x: width * 0.1, y: height * 0.6 },
-    size: { width: "8.5rem", height: "6rem" },
-    animationDelay: 0.8,
-    animationType: "medium" as const,
-  },
-  {
-    name: "20 Questions",
-    description: "❓ Mind Reading Game",
-    image: "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=80&h=80&fit=crop&crop=center",
-    gradientFrom: "#14B8A6",
-    gradientTo: "#0F766E",
-    textColor: "text-teal-200",
-    iconColor: "text-teal-300",
-    initialPosition: { x: width * 0.8, y: height * 0.3 },
-    size: { width: "8rem", height: "5.5rem" },
-    animationDelay: 2.2,
-    animationType: "fast" as const,
-  },
-];
 
 export function ComingSoon() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [windowSize, setWindowSize] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return { width: window.innerWidth, height: window.innerHeight };
-    }
-    return { width: 1200, height: 800 };
-  });
   const { toast } = useToast();
 
   useEffect(() => {
@@ -160,21 +21,8 @@ export function ComingSoon() {
       });
     };
 
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    handleResize(); // Set initial size
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("resize", handleResize);
-    
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -211,15 +59,6 @@ export function ComingSoon() {
     <div className="party-pattern min-h-screen relative overflow-hidden">
       <StarField />
       <Confetti />
-      
-      {/* Floating Game Elements */}
-      {getGamePositions(windowSize.width, windowSize.height).map((game, index) => (
-        <FloatingGame
-          key={index}
-          {...game}
-          onClick={() => handleGameClick(game.name)}
-        />
-      ))}
 
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Header */}
@@ -304,27 +143,61 @@ export function ComingSoon() {
               🔥 Ready to turn your gathering into the BEST party ever? From hilarious icebreakers to mind-bending mysteries, we've got every game that makes parties legendary! 🚀
             </motion.p>
 
-            {/* Features List */}
+            {/* Games Preview Grid */}
             <motion.div 
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto"
+              className="max-w-5xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-400/30 rounded-xl p-6 hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-multiplayer">
-                <div className="text-3xl mb-3">🎭</div>
-                <h3 className="font-bold text-purple-200 mb-2">Epic Group Fun</h3>
-                <p className="text-sm text-purple-100/80">2-20+ players! Perfect for small hangouts or massive parties</p>
+              <h2 className="text-2xl font-display font-bold text-center mb-8 gradient-text">
+                🎯 Epic Games Coming Your Way! 🎯
+              </h2>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                {[
+                  { name: "Codenames", emoji: "🕵️", color: "from-purple-500 to-indigo-500" },
+                  { name: "Never Have I Ever", emoji: "😱", color: "from-red-500 to-pink-500" },
+                  { name: "Charades", emoji: "🎭", color: "from-green-500 to-emerald-500" },
+                  { name: "Truth or Dare", emoji: "💥", color: "from-orange-500 to-red-500" },
+                  { name: "Two Truths & A Lie", emoji: "🤔", color: "from-yellow-500 to-orange-500" },
+                  { name: "Werewolf", emoji: "🐺", color: "from-violet-500 to-purple-500" },
+                  { name: "Pictionary", emoji: "✏️", color: "from-blue-500 to-cyan-500" },
+                  { name: "20 Questions", emoji: "❓", color: "from-teal-500 to-green-500" },
+                ].map((game, index) => (
+                  <motion.div
+                    key={game.name}
+                    className={`bg-gradient-to-br ${game.color}/20 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center hover:scale-105 transition-all duration-300 cursor-pointer hover:${game.color.replace('from-', 'shadow-')} hover:shadow-lg`}
+                    whileHover={{ y: -5 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.9 + index * 0.1 }}
+                    onClick={() => handleGameClick(game.name)}
+                    data-testid={`game-${game.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <div className="text-2xl mb-2">{game.emoji}</div>
+                    <div className="text-sm font-semibold text-white/90">{game.name}</div>
+                  </motion.div>
+                ))}
               </div>
-              <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm border border-orange-400/30 rounded-xl p-6 hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-classic-games">
-                <div className="text-3xl mb-3">🔥</div>
-                <h3 className="font-bold text-orange-200 mb-2">Instant Icebreakers</h3>
-                <p className="text-sm text-orange-100/80">Games that get everyone laughing within 60 seconds!</p>
-              </div>
-              <div className="bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-400/30 rounded-xl p-6 hover:from-green-500/30 hover:to-blue-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-any-device">
-                <div className="text-3xl mb-3">📱</div>
-                <h3 className="font-bold text-green-200 mb-2">No Setup Required</h3>
-                <p className="text-sm text-green-100/80">Just open, pick a game, and the party starts NOW!</p>
+
+              {/* Features List */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-400/30 rounded-xl p-6 hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-multiplayer">
+                  <div className="text-3xl mb-3">🎭</div>
+                  <h3 className="font-bold text-purple-200 mb-2">Epic Group Fun</h3>
+                  <p className="text-sm text-purple-100/80">2-20+ players! Perfect for small hangouts or massive parties</p>
+                </div>
+                <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm border border-orange-400/30 rounded-xl p-6 hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-classic-games">
+                  <div className="text-3xl mb-3">🔥</div>
+                  <h3 className="font-bold text-orange-200 mb-2">Instant Icebreakers</h3>
+                  <p className="text-sm text-orange-100/80">Games that get everyone laughing within 60 seconds!</p>
+                </div>
+                <div className="bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-400/30 rounded-xl p-6 hover:from-green-500/30 hover:to-blue-500/30 transition-all duration-300 hover:scale-105" data-testid="feature-any-device">
+                  <div className="text-3xl mb-3">📱</div>
+                  <h3 className="font-bold text-green-200 mb-2">No Setup Required</h3>
+                  <p className="text-sm text-green-100/80">Just open, pick a game, and the party starts NOW!</p>
+                </div>
               </div>
             </motion.div>
 
