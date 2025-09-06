@@ -6,16 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
-const games = [
+const getGamePositions = (width: number, height: number) => [
   {
     name: "Codenames",
     description: "Word Game",
-    icon: "fas fa-comments",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=center",
     gradientFrom: "#8B5CF6",
     gradientTo: "#7C3AED",
     textColor: "text-purple-300",
     iconColor: "text-purple-400",
-    position: { top: "15%", left: "10%" },
+    initialPosition: { x: 100, y: 80 },
     size: { width: "8rem", height: "5rem" },
     animationDelay: 0,
     animationType: "slow" as const,
@@ -23,12 +23,12 @@ const games = [
   {
     name: "Social Humor",
     description: "Party Laughs",
-    icon: "fas fa-laugh",
+    image: "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=64&h=64&fit=crop&crop=center",
     gradientFrom: "#EC4899",
     gradientTo: "#DB2777",
     textColor: "text-pink-300",
     iconColor: "text-pink-400",
-    position: { top: "25%", right: "15%" },
+    initialPosition: { x: width - 200, y: 150 },
     size: { width: "9rem", height: "6rem" },
     animationDelay: 1,
     animationType: "medium" as const,
@@ -36,12 +36,12 @@ const games = [
   {
     name: "Tambola",
     description: "Number Fun",
-    icon: "fas fa-dice",
+    image: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=64&h=64&fit=crop&crop=center",
     gradientFrom: "#F97316",
     gradientTo: "#EA580C",
     textColor: "text-orange-300",
     iconColor: "text-orange-400",
-    position: { top: "60%", left: "20%" },
+    initialPosition: { x: 200, y: height - 250 },
     size: { width: "7.5rem", height: "5.5rem" },
     animationDelay: 2,
     animationType: "fast" as const,
@@ -49,12 +49,12 @@ const games = [
   {
     name: "Guess Movie",
     description: "Film Quiz",
-    icon: "fas fa-film",
+    image: "https://images.unsplash.com/photo-1489599856216-3e6c3ae7bd31?w=64&h=64&fit=crop&crop=center",
     gradientFrom: "#3B82F6",
     gradientTo: "#2563EB",
     textColor: "text-blue-300",
     iconColor: "text-blue-400",
-    position: { top: "70%", right: "12%" },
+    initialPosition: { x: width - 180, y: height - 200 },
     size: { width: "9.5rem", height: "6.5rem" },
     animationDelay: 0.5,
     animationType: "medium" as const,
@@ -62,12 +62,12 @@ const games = [
   {
     name: "Charades",
     description: "Act It Out",
-    icon: "fas fa-theater-masks",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=64&h=64&fit=crop&crop=center",
     gradientFrom: "#10B981",
     gradientTo: "#059669",
     textColor: "text-green-300",
     iconColor: "text-green-400",
-    position: { top: "40%", left: "8%" },
+    initialPosition: { x: 80, y: 250 },
     size: { width: "8rem", height: "5rem" },
     animationDelay: 3,
     animationType: "slow" as const,
@@ -75,12 +75,12 @@ const games = [
   {
     name: "Trivia",
     description: "Brain Teaser",
-    icon: "fas fa-lightbulb",
+    image: "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=64&h=64&fit=crop&crop=center",
     gradientFrom: "#EAB308",
     gradientTo: "#CA8A04",
     textColor: "text-yellow-300",
     iconColor: "text-yellow-400",
-    position: { top: "35%", right: "8%" },
+    initialPosition: { x: width - 150, y: 200 },
     size: { width: "7rem", height: "4.5rem" },
     animationDelay: 1.5,
     animationType: "fast" as const,
@@ -88,12 +88,12 @@ const games = [
   {
     name: "Pictionary",
     description: "Draw & Guess",
-    icon: "fas fa-paint-brush",
+    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=64&h=64&fit=crop&crop=center",
     gradientFrom: "#6366F1",
     gradientTo: "#4F46E5",
     textColor: "text-indigo-300",
     iconColor: "text-indigo-400",
-    position: { top: "10%", right: "35%" },
+    initialPosition: { x: width * 0.4, y: 60 },
     size: { width: "8.5rem", height: "5.5rem" },
     animationDelay: 2.5,
     animationType: "medium" as const,
@@ -101,12 +101,12 @@ const games = [
   {
     name: "Truth or Dare",
     description: "Classic Fun",
-    icon: "fas fa-heart",
+    image: "https://images.unsplash.com/photo-1511268559489-34b624fbfcf5?w=64&h=64&fit=crop&crop=center",
     gradientFrom: "#F43F5E",
     gradientTo: "#E11D48",
     textColor: "text-rose-300",
     iconColor: "text-rose-400",
-    position: { top: "80%", left: "35%" },
+    initialPosition: { x: width * 0.3, y: height - 180 },
     size: { width: "9rem", height: "6rem" },
     animationDelay: 1.8,
     animationType: "slow" as const,
@@ -117,6 +117,12 @@ export function ComingSoon() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [windowSize, setWindowSize] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return { width: window.innerWidth, height: window.innerHeight };
+    }
+    return { width: 1200, height: 800 };
+  });
   const { toast } = useToast();
 
   useEffect(() => {
@@ -127,8 +133,21 @@ export function ComingSoon() {
       });
     };
 
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    handleResize(); // Set initial size
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("resize", handleResize);
+    
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -166,7 +185,7 @@ export function ComingSoon() {
       <StarField />
       
       {/* Floating Game Elements */}
-      {games.map((game, index) => (
+      {getGamePositions(windowSize.width, windowSize.height).map((game, index) => (
         <FloatingGame
           key={index}
           {...game}
