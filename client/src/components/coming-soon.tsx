@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { StarField } from "./star-field";
 import { Confetti } from "./confetti";
 import { PartyLights } from "./party-lights";
+import { FloatingGame } from "./floating-game";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -329,6 +330,82 @@ export function ComingSoon() {
           </div>
         </motion.footer>
       </div>
+
+      {/* Floating Game Cards */}
+      <FloatingGame
+        name="Codenames"
+        description="Secret agents, hidden identities, and mind-bending word clues!"
+        icon="🕵️"
+        gradientFrom="#8B5CF6"
+        gradientTo="#EC4899"
+        textColor="text-purple-200"
+        iconColor="text-purple-300"
+        initialPosition={{ x: 100, y: 200 }}
+        size={{ width: "280px", height: "200px" }}
+        animationDelay={0}
+        animationType="slow"
+        onClick={() => {}}
+      />
+      
+      <FloatingGame
+        name="Social Humor"
+        description="Laugh until your sides hurt with ridiculous scenarios!"
+        icon="😂"
+        gradientFrom="#F97316"
+        gradientTo="#EF4444"
+        textColor="text-orange-200"
+        iconColor="text-orange-300"
+        initialPosition={{ x: 800, y: 300 }}
+        size={{ width: "260px", height: "180px" }}
+        animationDelay={1}
+        animationType="medium"
+        onClick={() => {}}
+      />
+      
+      <FloatingGame
+        name="Tambola Bingo"
+        description="The classic party favorite with a digital twist!"
+        icon="🎯"
+        gradientFrom="#06B6D4"
+        gradientTo="#3B82F6"
+        textColor="text-cyan-200"
+        iconColor="text-cyan-300"
+        initialPosition={{ x: 200, y: 500 }}
+        size={{ width: "240px", height: "160px" }}
+        animationDelay={2}
+        animationType="fast"
+        onClick={() => {}}
+      />
+      
+      <FloatingGame
+        name="Movie Madness"
+        description="Guess movies from hilarious clues and acting!"
+        icon="🎬"
+        gradientFrom="#10B981"
+        gradientTo="#059669"
+        textColor="text-green-200"
+        iconColor="text-green-300"
+        initialPosition={{ x: 900, y: 150 }}
+        size={{ width: "270px", height: "190px" }}
+        animationDelay={0.5}
+        animationType="slow"
+        onClick={() => {}}
+      />
+      
+      <FloatingGame
+        name="Party Charades"
+        description="Act it out and make everyone guess in this classic!"
+        icon="🎭"
+        gradientFrom="#8B5CF6"
+        gradientTo="#A855F7"
+        textColor="text-violet-200"
+        iconColor="text-violet-300"
+        initialPosition={{ x: 50, y: 600 }}
+        size={{ width: "250px", height: "170px" }}
+        animationDelay={1.5}
+        animationType="medium"
+        onClick={() => {}}
+      />
     </div>
   );
 }
