@@ -203,6 +203,15 @@ export function ComingSoon() {
             </motion.div>
           </div>
         </main>
+
+        {/* Footer */}
+        <footer className="relative z-20 p-6 lg:p-8">
+          <div className="max-w-7xl mx-auto text-center">
+            <p className="text-muted-foreground text-sm" data-testid="text-copyright">
+              © 2025 Party Games. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </div>
 
     </div>
