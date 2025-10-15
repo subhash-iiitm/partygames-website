@@ -181,8 +181,11 @@ export function ComingSoon() {
               data-testid="text-subtitle"
             >
               Multiplayer games for any group, any occasion.{" "}
-              <span className="text-green-400 font-semibold">100% Free</span> &{" "}
-              <span className="text-blue-400 font-semibold">No Ads</span>.
+              <div className="inline-flex items-center gap-2">
+              <span className="text-green-400 font-semibold"> &nbsp;100% Free&nbsp;</span>
+              <span>&</span>
+              <span className="text-blue-400 font-semibold">&nbsp;No Ads</span>.
+              </div>            
             </motion.p>
 
             {/* Email Signup - Clean & Professional */}
