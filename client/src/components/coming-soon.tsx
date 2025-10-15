@@ -174,15 +174,6 @@ export function ComingSoon() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <div className="mb-4 flex items-center justify-center gap-3">
-                <span className="inline-flex items-center px-4 py-1.5 bg-green-500/20 border border-green-400/30 rounded-full text-sm font-semibold text-green-300">
-                  ✓ 100% Free
-                </span>
-                <span className="inline-flex items-center px-4 py-1.5 bg-blue-500/20 border border-blue-400/30 rounded-full text-sm font-semibold text-blue-300">
-                  ✓ No Ads
-                </span>
-              </div>
-              
               <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
                 <Input
                   type="email"
@@ -210,55 +201,8 @@ export function ComingSoon() {
                 Be the first to play when we launch. No spam, ever.
               </p>
             </motion.div>
-
-            {/* Social Media Links - Clean */}
-            <motion.div 
-              className="flex justify-center space-x-4 mt-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <a
-                href="#"
-                className="w-11 h-11 bg-card/50 backdrop-blur-sm border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-200"
-                data-testid="link-twitter"
-                onClick={(e) => e.preventDefault()}
-              >
-                <i className="fab fa-twitter text-lg" />
-              </a>
-              <a
-                href="#"
-                className="w-11 h-11 bg-card/50 backdrop-blur-sm border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-200"
-                data-testid="link-instagram"
-                onClick={(e) => e.preventDefault()}
-              >
-                <i className="fab fa-instagram text-lg" />
-              </a>
-              <a
-                href="#"
-                className="w-11 h-11 bg-card/50 backdrop-blur-sm border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-200"
-                data-testid="link-discord"
-                onClick={(e) => e.preventDefault()}
-              >
-                <i className="fab fa-discord text-lg" />
-              </a>
-            </motion.div>
           </div>
         </main>
-
-        {/* Footer */}
-        <motion.footer 
-          className="relative z-20 p-6 lg:p-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-        >
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-muted-foreground text-sm" data-testid="text-copyright">
-              © 2025 Party Games. All rights reserved.
-            </p>
-          </div>
-        </motion.footer>
       </div>
 
     </div>
