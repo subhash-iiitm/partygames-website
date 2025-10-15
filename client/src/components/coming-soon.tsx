@@ -129,13 +129,34 @@ export function ComingSoon() {
           <div className="max-w-3xl mx-auto text-center space-y-10">
             {/* Hero Badge */}
             <motion.div 
-              className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full text-sm font-semibold backdrop-blur-sm"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full backdrop-blur-sm"
+              initial={{ opacity: 0, scale: 0.8, y: -20 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1, 
+                y: 0,
+              }}
+              transition={{ 
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+                damping: 15
+              }}
               data-testid="badge-coming-soon"
             >
-              <span className="gradient-text font-display">COMING SOON</span>
+              <motion.span 
+                className="gradient-text font-display text-xl font-bold tracking-wide"
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                COMING SOON
+              </motion.span>
             </motion.div>
 
             {/* Main Headline - Clean & Professional */}
