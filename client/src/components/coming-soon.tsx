@@ -122,11 +122,6 @@ export function ComingSoon() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <nav className="max-w-7xl mx-auto flex justify-center items-center">
-            <span className="text-2xl font-display font-bold gradient-text">
-              Party Games
-            </span>
-          </nav>
         </motion.header>
 
         {/* Hero Section */}
@@ -164,7 +159,9 @@ export function ComingSoon() {
               transition={{ duration: 0.6, delay: 0.4 }}
               data-testid="text-subtitle"
             >
-              Multiplayer games for any group, any occasion. No downloads, no setup.
+              Multiplayer games for any group, any occasion.{" "}
+              <span className="text-green-400 font-semibold">100% Free</span> &{" "}
+              <span className="text-blue-400 font-semibold">No Ads</span>.
             </motion.p>
 
             {/* Email Signup - Clean & Professional */}
