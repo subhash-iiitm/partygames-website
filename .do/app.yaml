@@ -1,0 +1,11 @@
+name: party-game-portal
+static_sites:
+  - name: web
+    github:
+      branch: main
+      deploy_on_push: true
+    build_command: npm run build
+    output_dir: dist/public
+    routes:
+      - path: /
+
