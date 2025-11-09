@@ -4,6 +4,8 @@ import { Confetti } from "./confetti";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { Footer } from "./footer";
+import logo from "../assets/party-games-logo.svg";
 
 // Declare dataLayer for Google Tag Manager
 declare global {
@@ -115,14 +117,6 @@ export function ComingSoon() {
       <Confetti />
 
       <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Header */}
-        <motion.header 
-          className="relative z-20 p-6 lg:p-8"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-        </motion.header>
 
         {/* Hero Section */}
         <main className="flex-1 flex items-center justify-center px-6 lg:px-8 py-16 relative z-20">
@@ -157,6 +151,20 @@ export function ComingSoon() {
               >
                 COMING SOON
               </motion.span>
+            </motion.div>
+
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex justify-center"
+            >
+              <img 
+                src={logo} 
+                alt="Party Games Logo" 
+                className="h-24 lg:h-32 xl:h-40 w-auto"
+              />
             </motion.div>
 
             {/* Main Headline - Clean & Professional */}
@@ -226,13 +234,7 @@ export function ComingSoon() {
         </main>
 
         {/* Footer */}
-        <footer className="relative z-20 p-6 lg:p-8">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-muted-foreground text-sm" data-testid="text-copyright">
-              © 2025 Party Games. All rights reserved.
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
 
     </div>

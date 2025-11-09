@@ -1,9 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield } from "lucide-react";
+import { NavBar } from "@/components/navbar";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 py-12 px-4">
+    <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+      <NavBar />
+      <div className="pt-16 py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <Card className="bg-white/95 backdrop-blur-sm">
           <CardHeader>
@@ -280,6 +283,7 @@ export default function PrivacyPolicy() {
             </section>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   );
