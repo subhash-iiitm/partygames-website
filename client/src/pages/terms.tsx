@@ -17,7 +17,7 @@ export default function TermsOfService() {
               </CardTitle>
             </div>
             <p className="text-sm text-gray-600">
-              <strong>Last Updated:</strong> December 2024
+              <strong>Last Updated:</strong> November 2025
             </p>
           </CardHeader>
           <CardContent className="space-y-6 text-gray-700">
@@ -76,7 +76,7 @@ export default function TermsOfService() {
               
               <h3 className="text-xl font-semibold text-gray-800 mb-2 mt-4">Our Rights</h3>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>The App, including all content, features, and functionality, is owned by PartyGames</li>
+                <li>The App, including all content and features is owned by PartyGames</li>
                 <li>All trademarks, logos, and brand names are our property</li>
                 <li>You may not copy, modify, or distribute our content without permission</li>
               </ul>
@@ -105,12 +105,6 @@ export default function TermsOfService() {
                 <li>We reserve the right to investigate and take action against unfair play</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-gray-800 mb-2 mt-4">Game Moderation</h3>
-              <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>We may monitor game sessions for compliance with these Terms</li>
-                <li>We reserve the right to remove users from games for violations</li>
-                <li>Decisions regarding game moderation are final</li>
-              </ul>
             </section>
 
             <section>
@@ -193,7 +187,6 @@ export default function TermsOfService() {
               <ul className="list-disc list-inside space-y-2 ml-4 mt-2">
                 <li>Posting the updated Terms in the App</li>
                 <li>Updating the "Last Updated" date</li>
-                <li>Notifying you via in-app notification (for significant changes)</li>
               </ul>
               <p className="mt-3">
                 Your continued use of the App after changes constitutes acceptance of the updated Terms.

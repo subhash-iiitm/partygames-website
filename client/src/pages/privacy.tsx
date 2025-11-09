@@ -98,7 +98,6 @@ export default function PrivacyPolicy() {
                 <li><strong>Firestore:</strong> NoSQL database for user profiles and game statistics</li>
                 <li><strong>Realtime Database:</strong> Real-time data synchronization for game sessions and player presence</li>
                 <li><strong>Firebase Auth:</strong> Secure authentication (supports Google Sign-In and anonymous authentication)</li>
-                <li><strong>Firebase App Check:</strong> Security feature that protects our backend from abuse and unauthorized access</li>
               </ul>
               <p className="mt-3">
                 All data is encrypted in transit and at rest using industry-standard encryption methods.
@@ -111,7 +110,6 @@ export default function PrivacyPolicy() {
               <ul className="list-disc list-inside space-y-2 ml-4 mt-2">
                 <li><strong>Firebase (Google):</strong> Authentication, database, and security services</li>
                 <li><strong>Google Sign-In:</strong> For user authentication</li>
-                <li><strong>Firebase App Check:</strong> Security and abuse prevention service</li>
               </ul>
               
               <p className="mt-3">
@@ -162,13 +160,13 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">Data Retention</h2>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Active Accounts:</strong> Data is retained while your account is active</li>
-                <li><strong>Deleted Accounts:</strong> All data is permanently deleted within 30 days of account deletion</li>
+                <li><strong>Deleted Accounts:</strong> All data is permanently deleted after account deletion</li>
                 <li><strong>Game Statistics:</strong> Retained until account deletion</li>
                 <li><strong>Room Data:</strong> Deleted after game sessions end</li>
               </ul>
             </section>
 
-            <section>
+            {/* <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">Your Rights (GDPR Compliance)</h2>
               <p>If you are located in the European Economic Area (EEA), you have the following rights:</p>
               <ul className="list-disc list-inside space-y-2 ml-4 mt-2">
@@ -182,7 +180,7 @@ export default function PrivacyPolicy() {
               <p className="mt-3">
                 To exercise these rights, please contact us using the information provided below.
               </p>
-            </section>
+            </section> */}
 
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">California Consumer Privacy Act (CCPA) Rights</h2>
@@ -207,17 +205,10 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-3">Age Restrictions</h2>
-              <p>
-                PartyGames is intended for users aged <strong>13 and older</strong>. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.
-              </p>
-            </section>
-
-            <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">Data Security</h2>
               <p>We implement appropriate technical and organizational measures to protect your personal information:</p>
               <ul className="list-disc list-inside space-y-2 ml-4 mt-2">
-                <li>Encryption of data in transit and at rest</li>
+                <li>Encryption of data in transit</li>
                 <li>Secure authentication mechanisms</li>
                 <li>Regular security audits</li>
                 <li>Access controls and monitoring</li>
@@ -233,7 +224,6 @@ export default function PrivacyPolicy() {
               <ul className="list-disc list-inside space-y-2 ml-4 mt-2">
                 <li>Posting the new Privacy Policy in the app</li>
                 <li>Updating the "Last Updated" date</li>
-                <li>Notifying you via in-app notification (for significant changes)</li>
               </ul>
               <p className="mt-3">
                 Your continued use of the App after changes constitutes acceptance of the updated Privacy Policy.
@@ -259,20 +249,7 @@ export default function PrivacyPolicy() {
                 <p>Contact: <a href="mailto:support@partygames.in" className="text-purple-600 hover:underline">support@partygames.in</a></p>
                 <p>Website: <a href="https://partygames.in" className="text-purple-600 hover:underline">https://partygames.in</a></p>
               </div>
-              <p className="mt-3 text-sm text-gray-600">
-                For GDPR purposes, if you need to contact the data controller regarding your personal data rights, please use the contact information above.
-              </p>
-              <p className="mt-2 text-sm text-gray-600">
-                <strong>Note:</strong> If PartyGames operates under a different legal entity name, that entity name will be provided upon request.
-              </p>
-            </section>
-
-            <section className="pt-4 border-t">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <p className="text-sm text-blue-900">
-                  <strong>Note:</strong> This Privacy Policy should be hosted on your website at <code className="bg-blue-100 px-2 py-1 rounded">https://partygames.in/privacy</code> for public access and store submission requirements.
-                </p>
-              </div>
+              
             </section>
           </CardContent>
         </Card>

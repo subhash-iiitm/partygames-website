@@ -148,7 +148,7 @@ export function ComingSoon() {
             >
               <span className="gradient-text">Party Games</span>
               <br />
-              <span className="text-foreground">Instant Fun</span>
+              <span className="text-foreground text-xl lg:text-2xl xl:text-3xl font-normal">House party? Road trip? - Bring Every Party to Life</span>
             </motion.h1>
 
             {/* Subtitle - Clear Benefit */}
@@ -159,7 +159,7 @@ export function ComingSoon() {
               transition={{ duration: 0.6, delay: 0.4 }}
               data-testid="text-subtitle"
             >
-              Multiplayer games for any group, any occasion.{" "}
+             The best memories start with "Let’s play something!"{" "}
               <div className="inline-flex items-center gap-2">
               <span className="text-green-400 font-semibold"> &nbsp;100% Free&nbsp;</span>
               <span>&</span>
