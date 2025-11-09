@@ -122,36 +122,7 @@ export function ComingSoon() {
         <main className="flex-1 flex items-center justify-center px-6 lg:px-8 py-16 relative z-20">
           <div className="max-w-3xl mx-auto text-center space-y-10">
             {/* Hero Badge */}
-            <motion.div 
-              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full backdrop-blur-sm"
-              initial={{ opacity: 0, scale: 0.8, y: -20 }}
-              animate={{ 
-                opacity: 1, 
-                scale: 1, 
-                y: 0,
-              }}
-              transition={{ 
-                duration: 0.6,
-                type: "spring",
-                stiffness: 200,
-                damping: 15
-              }}
-              data-testid="badge-coming-soon"
-            >
-              <motion.span 
-                className="gradient-text font-display text-xl font-bold tracking-wide"
-                animate={{ 
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                COMING SOON
-              </motion.span>
-            </motion.div>
+            
 
             {/* Logo */}
             <motion.div
@@ -175,9 +146,9 @@ export function ComingSoon() {
               transition={{ duration: 0.6, delay: 0.2 }}
               data-testid="heading-main"
             >
-              <span className="gradient-text">Party Games.</span>
+              <span className="gradient-text">Party Games</span>
               <br />
-              <span className="text-foreground">Instantly Fun.</span>
+              <span className="text-foreground">Instant Fun</span>
             </motion.h1>
 
             {/* Subtitle - Clear Benefit */}
@@ -192,12 +163,12 @@ export function ComingSoon() {
               <div className="inline-flex items-center gap-2">
               <span className="text-green-400 font-semibold"> &nbsp;100% Free&nbsp;</span>
               <span>&</span>
-              <span className="text-blue-400 font-semibold">&nbsp;No Ads</span>.
+              <span className="text-blue-400 font-semibold">&nbsp;No Ads</span>
               </div>            
             </motion.p>
 
             {/* Email Signup - Clean & Professional */}
-            <motion.div 
+            {/* <motion.div 
               className="max-w-lg mx-auto mt-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -229,6 +200,36 @@ export function ComingSoon() {
               <p className="mt-3 text-sm text-muted-foreground" data-testid="text-email-disclaimer">
                 Be the first to play when we launch. No spam, ever.
               </p>
+            </motion.div> */}
+            <motion.div 
+              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full backdrop-blur-sm"
+              initial={{ opacity: 0, scale: 0.8, y: -20 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1, 
+                y: 0,
+              }}
+              transition={{ 
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+                damping: 15
+              }}
+              data-testid="badge-coming-soon"
+            >
+              <motion.span 
+                className="gradient-text font-display text-xl font-bold tracking-wide"
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                COMING SOON
+              </motion.span>
             </motion.div>
           </div>
         </main>

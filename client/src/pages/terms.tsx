@@ -28,12 +28,6 @@ export default function TermsOfService() {
               </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-3">Age Restrictions</h2>
-              <p>
-                PartyGames is intended for users aged <strong>13 and older</strong>. By using the App, you represent and warrant that you are at least 13 years old. If you are under 18, you represent that you have your parent's or guardian's permission to use the App.
-              </p>
-            </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">User Accounts</h2>
@@ -238,11 +232,6 @@ export default function TermsOfService() {
                 </p>
               </div>
               
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <p className="text-sm text-blue-900">
-                  <strong>Note:</strong> This Terms of Service should be hosted on your website at <code className="bg-blue-100 px-2 py-1 rounded">https://partygames.in/terms</code> for public access and store submission requirements.
-                </p>
-              </div>
             </section>
           </CardContent>
         </Card>

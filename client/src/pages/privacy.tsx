@@ -66,13 +66,6 @@ export default function PrivacyPolicy() {
                 <li><strong>System Alert Window</strong> (Android): Required for displaying game overlays and notifications</li>
               </ul>
               
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
-                <p className="font-semibold text-yellow-900 mb-2">Note on Storage Permissions (Android):</p>
-                <p className="text-yellow-800 text-sm">
-                  Our Android manifest may declare storage permissions (<code className="bg-yellow-100 px-1 rounded">READ_EXTERNAL_STORAGE</code>, <code className="bg-yellow-100 px-1 rounded">WRITE_EXTERNAL_STORAGE</code>) for compatibility with older Android versions, but we do not actively use these permissions to access your device's external storage. These permissions are not required for the app's functionality on modern Android versions.
-                </p>
-              </div>
-
               <p className="mt-4">
                 <strong>Note:</strong> We do not request access to your camera, microphone, location, contacts, or other sensitive permissions.
               </p>
