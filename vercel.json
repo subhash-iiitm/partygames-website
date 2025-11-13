@@ -3,7 +3,29 @@
   "outputDirectory": "dist/public",
   "framework": null,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { 
+      "source": "/((?!.*\\.apk$).*)", 
+      "destination": "/index.html" 
+    }
+  ],
+  "headers": [
+    {
+      "source": "/party-games.apk",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/vnd.android.package-archive"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"party-games.apk\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
   ]
 }
 

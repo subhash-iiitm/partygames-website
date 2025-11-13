@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Footer } from "./footer";
-import { Download } from "lucide-react";
+import { Download, Loader2 } from "lucide-react";
 import { useDownloadApp } from "@/hooks/use-download-app";
 import { IOSComingSoonDialog } from "./ios-coming-soon-dialog";
 import logo from "../assets/party-games-logo.svg";
@@ -22,7 +22,7 @@ export function ComingSoon() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const { toast } = useToast();
-  const { handleDownload, showIOSDialog, setShowIOSDialog } = useDownloadApp();
+  const { handleDownload, showIOSDialog, setShowIOSDialog, isDownloading } = useDownloadApp();
 
   // Track page view on component mount
   useEffect(() => {
@@ -223,11 +223,16 @@ export function ComingSoon() {
               }}
             >
               <Button
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold gap-2 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 border border-purple-400/30 hover:border-purple-400/50 glow-button px-8 py-6 text-lg"
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold gap-2 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 border border-purple-400/30 hover:border-purple-400/50 glow-button px-8 py-6 text-lg disabled:opacity-70 disabled:cursor-not-allowed"
                 onClick={handleDownload}
+                disabled={isDownloading}
               >
-                <Download className="h-5 w-5" />
-                Download App
+                {isDownloading ? (
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                ) : (
+                  <Download className="h-5 w-5" />
+                )}
+                {isDownloading ? "Downloading..." : "Download App"}
               </Button>
             </motion.div>
           </div>
