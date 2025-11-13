@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText } from "lucide-react";
+import { FileText, Download } from "lucide-react";
 import { NavBar } from "@/components/navbar";
+import { Button } from "@/components/ui/button";
+import { downloadAPK } from "@/lib/utils";
 
 export default function TermsOfService() {
   return (

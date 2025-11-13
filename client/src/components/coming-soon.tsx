@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Footer } from "./footer";
+import { Download } from "lucide-react";
+import { useDownloadApp } from "@/hooks/use-download-app";
+import { IOSComingSoonDialog } from "./ios-coming-soon-dialog";
 import logo from "../assets/party-games-logo.svg";
 
 // Declare dataLayer for Google Tag Manager
@@ -19,6 +22,7 @@ export function ComingSoon() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const { toast } = useToast();
+  const { handleDownload, showIOSDialog, setShowIOSDialog } = useDownloadApp();
 
   // Track page view on component mount
   useEffect(() => {
@@ -201,8 +205,9 @@ export function ComingSoon() {
                 Be the first to play when we launch. No spam, ever.
               </p>
             </motion.div> */}
-            <motion.div 
-              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full backdrop-blur-sm"
+            
+            {/* Download Android APK Button */}
+            <motion.div
               initial={{ opacity: 0, scale: 0.8, y: -20 }}
               animate={{ 
                 opacity: 1, 
@@ -213,23 +218,17 @@ export function ComingSoon() {
                 duration: 0.6,
                 type: "spring",
                 stiffness: 200,
-                damping: 15
+                damping: 15,
+                delay: 0.5
               }}
-              data-testid="badge-coming-soon"
             >
-              <motion.span 
-                className="gradient-text font-display text-xl font-bold tracking-wide"
-                animate={{ 
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+              <Button
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold gap-2 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 border border-purple-400/30 hover:border-purple-400/50 glow-button px-8 py-6 text-lg"
+                onClick={handleDownload}
               >
-                COMING SOON
-              </motion.span>
+                <Download className="h-5 w-5" />
+                Download App
+              </Button>
             </motion.div>
           </div>
         </main>
@@ -238,6 +237,8 @@ export function ComingSoon() {
         <Footer />
       </div>
 
+      {/* iOS Coming Soon Dialog */}
+      <IOSComingSoonDialog open={showIOSDialog} onOpenChange={setShowIOSDialog} />
     </div>
   );
 }

@@ -2,9 +2,13 @@ import { Link } from "wouter";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useDownloadApp } from "@/hooks/use-download-app";
+import { IOSComingSoonDialog } from "./ios-coming-soon-dialog";
 import logo from "../assets/party-games-logo.svg";
 
 export function NavBar() {
+  const { handleDownload, showIOSDialog, setShowIOSDialog } = useDownloadApp();
+
   return (
     <motion.nav
       className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-purple-500/20 shadow-lg shadow-purple-900/10"
@@ -30,27 +34,16 @@ export function NavBar() {
           {/* Right: Download App CTA */}
           <Button
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold gap-2 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 border border-purple-400/30 hover:border-purple-400/50 glow-button"
-            onClick={() => {
-              // Detect platform and open appropriate store
-              const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-              const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
-              const isAndroid = /android/i.test(userAgent);
-              
-              if (isIOS) {
-                window.open('https://apps.apple.com/app/partygames', '_blank');
-              } else if (isAndroid) {
-                window.open('https://play.google.com/store/apps/details?id=com.partygames', '_blank');
-              } else {
-                // For desktop, you could show both options or a landing page
-                window.open('https://partygames.in/download', '_blank');
-              }
-            }}
+            onClick={handleDownload}
           >
             <Download className="h-4 w-4" />
             Download App
           </Button>
         </div>
       </div>
+
+      {/* iOS Coming Soon Dialog */}
+      <IOSComingSoonDialog open={showIOSDialog} onOpenChange={setShowIOSDialog} />
     </motion.nav>
   );
 }
