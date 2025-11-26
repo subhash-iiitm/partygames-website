@@ -168,6 +168,57 @@ export default function PrivacyPolicy() {
               </ul>
             </section>
 
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-3">Data Deletion</h2>
+              
+              <h3 className="text-xl font-semibold text-gray-800 mb-2 mt-4">How to Delete Your Data</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">Local Data (Cached Game Data & App Settings):</h4>
+                  <p className="mb-2">To delete all local app data from your device:</p>
+                  <ol className="list-decimal list-inside space-y-1 ml-4">
+                    <li>Go to your device's <strong>Settings</strong></li>
+                    <li>Navigate to <strong>Apps</strong> or <strong>Applications</strong></li>
+                    <li>Find and select <strong>Party Games</strong></li>
+                    <li>Tap <strong>Storage</strong></li>
+                    <li>Tap <strong>Clear Storage</strong> or <strong>Clear Data</strong></li>
+                    <li>Confirm deletion</li>
+                  </ol>
+                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mt-3">
+                    <p className="text-sm text-yellow-900">
+                      <strong>Note:</strong> This will permanently delete all your cached game data and app settings from your device. You will need to sign in again after clearing data.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">Account Data (Google Sign-In):</h4>
+                  <p className="mb-2">To delete your account and all associated data from our servers:</p>
+                  <ol className="list-decimal list-inside space-y-1 ml-4">
+                    <li>Email us at <a href="mailto:support@partygame.in" className="text-purple-600 hover:underline">support@partygame.in</a> with subject: <strong>"Account Deletion Request"</strong></li>
+                    <li>Include your registered email address</li>
+                    <li>We will delete your account within <strong>7 business days</strong></li>
+                    <li>You will receive confirmation once deletion is complete</li>
+                  </ol>
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-3 mt-3">
+                    <p className="text-sm text-red-900">
+                      <strong>Warning:</strong> Account deletion is permanent and cannot be undone. All your game statistics, profile data, and account information will be permanently deleted.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">Data Deletion Timeline:</h4>
+                  <ul className="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>Local data:</strong> Immediate upon deletion via device settings</li>
+                    <li><strong>Account data:</strong> Within 7 business days of request</li>
+                    <li><strong>Backup data:</strong> Automatically deleted when account is removed</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
             {/* <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-3">Your Rights (GDPR Compliance)</h2>
               <p>If you are located in the European Economic Area (EEA), you have the following rights:</p>
@@ -202,7 +253,7 @@ export default function PrivacyPolicy() {
               </div>
 
               <p className="mt-3">
-                To exercise your CCPA rights, please contact us at <a href="mailto:support@partygames.in" className="text-purple-600 hover:underline">support@partygames.in</a>.
+                To exercise your CCPA rights, please contact us at <a href="mailto:support@partygame.in" className="text-purple-600 hover:underline">support@partygame.in</a>.
               </p>
             </section>
 
@@ -237,9 +288,9 @@ export default function PrivacyPolicy() {
               <p>If you have questions about this Privacy Policy or wish to exercise your rights, please contact us:</p>
               <div className="bg-gray-50 p-4 rounded-lg mt-3">
                 <p className="font-semibold">Email:</p>
-                <p><a href="mailto:support@partygames.in" className="text-purple-600 hover:underline">support@partygames.in</a></p>
+                <p><a href="mailto:support@partygame.in" className="text-purple-600 hover:underline">support@partygame.in</a></p>
                 <p className="font-semibold mt-3">Website:</p>
-                <p><a href="https://partygames.in" className="text-purple-600 hover:underline">https://partygames.in</a></p>
+                <p><a href="https://partygame.in" className="text-purple-600 hover:underline">https://partygame.in</a></p>
               </div>
             </section>
 
@@ -248,8 +299,8 @@ export default function PrivacyPolicy() {
               <p>The data controller for your personal information is:</p>
               <div className="bg-gray-50 p-4 rounded-lg mt-3">
                 <p className="font-semibold">PartyGames</p>
-                <p>Contact: <a href="mailto:support@partygames.in" className="text-purple-600 hover:underline">support@partygames.in</a></p>
-                <p>Website: <a href="https://partygames.in" className="text-purple-600 hover:underline">https://partygames.in</a></p>
+                <p>Contact: <a href="mailto:support@partygame.in" className="text-purple-600 hover:underline">support@partygame.in</a></p>
+                <p>Website: <a href="https://partygame.in" className="text-purple-600 hover:underline">https://partygame.in</a></p>
               </div>
               
             </section>

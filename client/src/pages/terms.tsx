@@ -176,7 +176,7 @@ export default function TermsOfService() {
 
               <h3 className="text-xl font-semibold text-gray-800 mb-2 mt-4">Dispute Resolution Process</h3>
               <ol className="list-decimal list-inside space-y-2 ml-4">
-                <li><strong>Informal Resolution:</strong> Contact us at <a href="mailto:support@partygames.in" className="text-purple-600 hover:underline">support@partygames.in</a> to resolve disputes informally</li>
+                <li><strong>Informal Resolution:</strong> Contact us at <a href="mailto:support@partygame.in" className="text-purple-600 hover:underline">support@partygame.in</a> to resolve disputes informally</li>
                 <li><strong>Mediation:</strong> If informal resolution fails, disputes may be resolved through mediation</li>
                 <li><strong>Arbitration:</strong> Disputes may be resolved through binding arbitration if mediation fails</li>
                 <li><strong>Class Action Waiver:</strong> You agree not to participate in class action lawsuits</li>
@@ -214,9 +214,9 @@ export default function TermsOfService() {
               <p>If you have questions about these Terms, please contact us:</p>
               <div className="bg-gray-50 p-4 rounded-lg mt-3">
                 <p className="font-semibold">Email:</p>
-                <p><a href="mailto:support@partygames.in" className="text-purple-600 hover:underline">support@partygames.in</a></p>
+                <p><a href="mailto:support@partygame.in" className="text-purple-600 hover:underline">support@partygame.in</a></p>
                 <p className="font-semibold mt-3">Website:</p>
-                <p><a href="https://partygames.in" className="text-purple-600 hover:underline">https://partygames.in</a></p>
+                <p><a href="https://partygame.in" className="text-purple-600 hover:underline">https://partygame.in</a></p>
               </div>
             </section>
 
