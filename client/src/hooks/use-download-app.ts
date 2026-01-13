@@ -1,34 +1,24 @@
 import { useState } from "react";
-import { downloadAPK } from "@/lib/utils";
 
 /**
  * Custom hook for handling app download with platform detection
- * Returns the download handler and iOS dialog state
+ * Opens the appropriate app store based on the user's platform
  */
 export function useDownloadApp() {
   const [showIOSDialog, setShowIOSDialog] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
 
-  const handleDownload = async () => {
-    // Detect platform and download APK or show coming soon dialog
+  const handleDownload = () => {
+    // Detect platform and open appropriate store
     const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
     const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
-    const isAndroid = /android/i.test(userAgent);
     
     if (isIOS) {
-      // Show coming soon dialog for iOS users
-      setShowIOSDialog(true);
+      // Open App Store for iOS users
+      window.open("https://apps.apple.com/in/app/partygames-vibe-with-friends/id6756569990", "_blank");
     } else {
-      // Download APK for Android and desktop devices
-      setIsDownloading(true);
-      try {
-        await downloadAPK();
-      } finally {
-        // Reset loading state after a short delay to show feedback
-        setTimeout(() => {
-          setIsDownloading(false);
-        }, 500);
-      }
+      // Open Play Store for Android and desktop users
+      window.open("https://play.google.com/store/apps/details?id=com.homeground.partygames", "_blank");
     }
   };
 
